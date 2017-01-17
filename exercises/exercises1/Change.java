@@ -22,12 +22,14 @@ public class Change {
 		int nickels = (change - (dollars * 100) - (quarters * 25) - (dimes * 10)) / 5;
 		int pennies = (change - (dollars * 100) - (quarters * 25) - (dimes * 10) - (nickels * 5));
 		
-		//Check to see if the coins added up match the initial value
-		int check = (dollars * 100) + (quarters * 25) + (dimes * 10) + (nickels * 5) + pennies;
+		
 				
 		//Output number of each coin		
-		System.out.print("For " + change + " pennies: " + dollars + " dollars and " + quarters + " quarters and " + dimes + " dimes and " + nickels + " nickels and " + pennies + " pennies " + check );
+		System.out.println("For " + change + " pennies: " + dollars + " dollars and " + quarters + " quarters and " + dimes + " dimes and " + nickels + " nickels and " + pennies + " pennies ");
 		
+		//Check to see if the coins added up match the initial value
+		int check = (dollars * 100) + (quarters * 25) + (dimes * 10) + (nickels * 5) + pennies;
+		System.out.println(check == change);
 		
 		
 		
