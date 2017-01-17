@@ -13,12 +13,18 @@ public class Change {
 		
 		int change = ap.nextInt("Number of pennies?");
 		
-		int dollars = change % 100;
-		int quarters = 
+		int dollars = change / 100;
+		int quarters = (change - (dollars * 100)) / 25;
+		int dimes = (change - (dollars * 100) - (quarters * 25)) / 10;
+		int nickels = (change - (dollars * 100) - (quarters * 25) - (dimes * 10)) / 5;
+		int pennies = (change - (dollars * 100) - (quarters * 25) - (dimes * 10) - (nickels * 5));
 		
+		int check = (dollars * 100) + (quarters * 25) + (dimes * 10) + (nickels * 5) + pennies;
 				
 				
-		System.out.println(dollars + quarters);
+		System.out.print("For " + change + " pennies: " + dollars + " dollars and " + quarters + " quarters and " + dimes + " dimes and " + nickels + " nickels and " + pennies + " pennies " + check );
+		
+		
 		
 		
 		//
