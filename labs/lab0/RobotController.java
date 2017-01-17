@@ -137,7 +137,7 @@ public class RobotController extends JFrame {
 		RobotView view = new RobotView(model.pcs);
 		model.setSpeed(speed);
 		panel.add(view.getRobot());
-		model.setLocation(5, 590);
+		model.setLocation(200, 590);
 		RobotMotionAdapter motion = new RobotMotionAdapter(model);
 		RobotThread t = new RobotThread(motion, instructions);
 		t.start();
