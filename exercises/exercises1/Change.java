@@ -24,6 +24,7 @@ public class Change {
 				
 		System.out.print("For " + change + " pennies: " + dollars + " dollars and " + quarters + " quarters and " + dimes + " dimes and " + nickels + " nickels and " + pennies + " pennies " + check );
 		
+		int test = 0
 		
 		
 		
