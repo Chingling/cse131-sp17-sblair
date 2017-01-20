@@ -38,9 +38,9 @@ public class Nutrition {
 		System.out.println("With " + unavalCal + " unavailable Calories, this food has " + fiber + " grams of fiber");
 		System.out.println("");
 		System.out.println("Approximately");
-		System.out.println(perCarb + "% of your food is carbohydrates");
-		System.out.println(perFat + "% of your food is fat");
-		System.out.println(perProt + "% of your food is protein");
+		System.out.println("\t" + perCarb + "% of your food is carbohydrates");
+		System.out.println("\t" + perFat + "% of your food is fat");
+		System.out.println("\t" + perProt + "% of your food is protein");
 		System.out.println("");
 		System.out.println("This food is acceptable for a low-carb diet? " + lowcarb);
 		System.out.println("This food is acceptable for a low-fat diet? " + lowfat);
