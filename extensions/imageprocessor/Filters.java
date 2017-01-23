@@ -123,7 +123,20 @@ public class Filters {
 	 * @return
 	 */
 	public static Color bgSubtract(Color source1Color, Color source2Color, int tolerance) {
-		return Color.black;
+		int red1 = source1Color.getRed();
+		int green1 = source1Color.getGreen();
+		int blue1 = source1Color.getBlue();
+		int red2 = source2Color.getRed();
+		int green2 = source2Color.getGreen();
+		int blue2 = source2Color.getBlue();
+		
+		int diffred = red1 - red2;
+		int diffgreen = green1 - green2;
+		int diffblue = blue1 - blue2;
+		
+		int difftotal = diffred + diffgreen + diffblue;
+		
+		return (Math.abs(difftotal) < tolerance) ? Color.blue : source1Color;
 
 	}
 
@@ -135,7 +148,12 @@ public class Filters {
 	//second image if the color from the first image is blue; otherwise returns
 	//the color from the first image.
 	public static Color bgReplace(Color s1Color, Color s2Color) {
-		return genRandomColor();
+		int blue1 = s1Color.getBlue();
+		int red1 = s1Color.getRed();
+		int green1 = s1Color.getGreen();
+		
+		return (red1 == 0 && green1 == 0 && blue1 == 255) ? s2Color : s1Color;
+		
 	}
 
 }
