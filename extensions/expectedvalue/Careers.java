@@ -23,6 +23,7 @@ public class Careers {
 		System.out.println("Gamer: " + gamer2);
 		System.out.println("Programmer: " + programmer2);
 		System.out.println("You should be a: " + (programmer2 > gamer2 ? "programmer" : "gamer"));
+		int test = 0;
 	}
 
 }
