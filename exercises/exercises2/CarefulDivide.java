@@ -17,7 +17,12 @@ public class CarefulDivide {
 		// Otherwise, print the quotient
 		//
 
-
+		if (denominator == 0) {
+			System.out.println("Undefined (Divide by zero error)");
+		}
+		else {
+			System.out.println(numerator / denominator);
+		}
 
 	}
 

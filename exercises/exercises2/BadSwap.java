@@ -25,8 +25,8 @@ public class BadSwap {
 		//   Note that the bad swap executes only if x>y
 		//
 		// Your answer:
-		//
-		//
+		//	x and y are set by the user. The program then sets x = y, making them the same value.
+		//	When y is then set equal to x, they are already the same value so nothing is swapped.
 		//
 		//
 		//

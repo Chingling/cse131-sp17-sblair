@@ -11,8 +11,15 @@ public class RandomAverages {
 		//     thus far.
 		//
 		// Your code goes below here.
+		int i = 0;
+		double sum = 0.0;
 		
-		
+		while (i < 1000) {
+			
+			i = i + 1;
+			sum = sum + Math.random();
+			System.out.println(sum / i);
+		}
 		
 		//
 		//  Some questions:

@@ -18,6 +18,11 @@ public class Die {
 		//  throw of a die
 		//
 
+		double random = Math.random();
+		double die = Math.round(random * 6);
+		
+		System.out.println(die);
+		
 	}
 
 }
