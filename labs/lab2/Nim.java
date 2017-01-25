@@ -138,6 +138,7 @@ public class Nim {
 	}
 	else {
 		System.out.println("Pick a valid number you idiot");
+		int test = 0;
 	}
 	}
 
