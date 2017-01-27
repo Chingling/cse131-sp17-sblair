@@ -9,9 +9,11 @@ public class Pi {
      while (amount < 10000) {
     	 
      
-    	 double random = Math.random();
-     double dart = (Math.sqrt(2)) * random;
-     if (dart <= 1) {
+    	 double dartX = Math.random();
+    	 double dartY = Math.random();
+    	 double distance = Math.sqrt(Math.pow(dartX, 2) + Math.pow(dartY, 2));
+    	 
+     if (distance <= 1) {
     	 inside = inside + 1;
      }
     
