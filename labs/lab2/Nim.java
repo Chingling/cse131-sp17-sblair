@@ -12,6 +12,12 @@ public class Nim {
 		int move = ap.nextInt("Play 'first' or 'second' (1 for first, 2 for second)?");
 		int who = (move == 1) ? 1 : 0; //0 for computer, 1 for human
 		String winner = "none";
+		if (move == 1) {
+			System.out.println("Human starts");
+		}
+		else {
+			System.out.println("Computer starts");
+		}
 		
 		if (move == 1 || move == 2) {	
 			while (remaining > 0) {
