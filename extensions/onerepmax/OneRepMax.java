@@ -20,7 +20,7 @@ public class OneRepMax {
 			percent = (percent - 5);
 			double percentPrint = percent / 100.0;
 			double percentWeight = repMax * percentPrint;
-			System.out.println(percentPrint + "% 1 RM: " + percentWeight);
+			System.out.println(Math.round(percentPrint * 100 * 10) / 10 + "% 1 RM: " + percentWeight);
 		}
 	}
 
