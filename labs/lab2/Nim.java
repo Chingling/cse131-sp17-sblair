@@ -6,7 +6,7 @@ public class Nim {
 		ArgsProcessor ap = new ArgsProcessor(args);
 		
 		int round = 0;
-		int sticks = 7;
+		int sticks = ap.nextInt("How many sticks to start?");
 		int oldSticks;
 		int remaining = sticks;
 		int move = ap.nextInt("Play 'first' or 'second' (1 for first, 2 for second)?");
