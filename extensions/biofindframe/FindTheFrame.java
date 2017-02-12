@@ -96,11 +96,13 @@ public class FindTheFrame {
 					checkA[1] = dna[i + 1]; 
 					checkA[2] = dna[i + 2];
 				}
-				
-					position1 = i + 3;
 					if (checkA[0] == meth[0] && checkA[1] == meth[1] && checkA[2] == meth[2]) {
 						i = dna.length;
+						position1 = i + 3;
 				}
+					else {
+						position1 = i + 3;
+					}
 				System.out.println(position1);	
 			}
 			
@@ -115,12 +117,12 @@ public class FindTheFrame {
 					checkA[1] = dna[i + 1]; 
 					checkA[2] = dna[i + 2];
 				}
-				position1 = i + 3;
 				if ((checkA[0] == ochre[0] && checkA[1] == ochre[1] && checkA[2] == ochre[2]) || (checkA[0] == amber[0] && checkA[1] == amber[1] && checkA[2] == amber[2]) || (checkA[0] == opal[0] && checkA[1] == opal[1] && checkA[2] == opal[2])) {
 					i = dna.length;
 				}
 				else {
 					count1 = count1 + 1;
+					position1 = i + 3;
 				}
 				System.out.println(position1);	
 			}
@@ -143,10 +145,12 @@ public class FindTheFrame {
 					checkA[1] = dna[i + 1]; 
 					checkA[2] = dna[i + 2];
 				}
-					position2 = i + 3;
 					if (checkA[0] == meth[0] && checkA[1] == meth[1] && checkA[2] == meth[2]) {
 						i = dna.length;
 				}
+					else {
+						position2 = i + 3;
+					}
 					
 			}
 			
@@ -161,12 +165,13 @@ public class FindTheFrame {
 					checkA[1] = dna[i + 1]; 
 					checkA[2] = dna[i + 2];
 				}
-				position2 = i + 3;
+				
 				if ((checkA[0] == ochre[0] && checkA[1] == ochre[1] && checkA[2] == ochre[2]) || (checkA[0] == amber[0] && checkA[1] == amber[1] && checkA[2] == amber[2]) || (checkA[0] == opal[0] && checkA[1] == opal[1] && checkA[2] == opal[2])) {
 					i = dna.length;
 				}
 				else {
 					count2 = count2 + 1;
+					position2 = i + 3;
 				}
 			}
 			
@@ -188,10 +193,13 @@ public class FindTheFrame {
 					checkA[1] = dna[i + 1]; 
 					checkA[2] = dna[i + 2];
 				}
-					position3 = i + 3;
+
 					if (checkA[0] == meth[0] && checkA[1] == meth[1] && checkA[2] == meth[2]) {
 						i = dna.length;
 				}
+					else {
+						position3 = i + 3;
+					}
 					
 			}
 			
@@ -206,17 +214,19 @@ public class FindTheFrame {
 					checkA[1] = dna[i + 1]; 
 					checkA[2] = dna[i + 2];
 				}
-				position3 = i + 3;
 				if ((checkA[0] == ochre[0] && checkA[1] == ochre[1] && checkA[2] == ochre[2]) || (checkA[0] == amber[0] && checkA[1] == amber[1] && checkA[2] == amber[2]) || (checkA[0] == opal[0] && checkA[1] == opal[1] && checkA[2] == opal[2])) {
 					i = dna.length;
 				}
 				else {
 					count3 = count3 + 1;
+					position3 = i + 3;
 				}
 			}
 			
 			}
-		
+		if (count1 == 0) {
+			ans = -1;
+		}
 		if (count1 > count2 && count1 > count3) {
 			ans = 0;
 		}
