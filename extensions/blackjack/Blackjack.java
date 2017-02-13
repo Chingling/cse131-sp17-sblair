@@ -13,11 +13,11 @@ public class Blackjack {
 		System.out.println("");
 		
 		for (int i = 0; i < games; i++) {
-			System.out.println("Game " + i + 1);
+			System.out.println("Game " + (i + 1));
 			int score[] = new int[p+2];
 			
-			//Dealing 2 cards to every player
-			for (int j = 0; j < score.length; j++) {
+			//Deal 2 cards to every player except the Dealer
+			for (int j = 0; j < p + 1; j++) {
 				for (int k = 0; k < 2; k++) {
 					int random = (1 + (int)(13*Math.random()));
 					int card = 0;
@@ -36,12 +36,43 @@ public class Blackjack {
 				}
 			}
 			
+			//Deal to cards to the Dealer
+				int random1 = (1 + (int)(13*Math.random()));
+				int card1 = 0;
+		
+				//Set card values
+				if (random1 == 1) {
+					card1 = 11;
+				}
+				if (random1 >= 2 && random1 <= 9) {
+					card1 = random1;
+				}
+				if (random1 >= 10) {
+					card1 = 10;
+				}
+				score[p+1] = score[p+1] + card1;
+			
+				int random2 = (1 + (int)(13*Math.random()));
+				int card2 = 0;
+		
+				//Set card values
+				if (random2 == 1) {
+					card2 = 11;
+				}
+				if (random2 >= 2 && random2 <= 9) {
+					card2 = random2;
+				}
+				if (random2 >= 10) {
+					card2 = 10;
+				}
+				score[p+1] = score[p+1] + card2;
+			
 			System.out.println("The player's scores are:");
-			for (int j = 1; j < score.length-1; j++) {
+			for (int j = 1; j < p + 1; j++) {
 				System.out.print(score[j] + " ");
 			}
 			System.out.println("");
-			System.out.println("The dealer's face-up card has a value of " + score[p-1]); 
+			System.out.println("The dealer's face-up card has a value of " + card1); 
 			
 			
 			//Human move
@@ -104,7 +135,7 @@ public class Blackjack {
 			}
 			
 			System.out.println("");
-			System.out.println("Dealer got \t" + score[p-1] + ((score[p-1] > 21) ? "\tBust!" : ((score[p-1] == 21) ? "\tBlackjack!" : "")));
+			System.out.println("Dealer got \t" + score[p+1] + ((score[p+1] > 21) ? "\tBust!" : ((score[p+1] == 21) ? "\tBlackjack!" : "")));
 			System.out.println("Human got \t" + score[0] + ((score[0] > 21) ? "\tBust!" : ((score[0] == 21) ? "\tBlackjack!" : "")));
 			for (int j = 1; j < score.length-1; j++) {
 				System.out.println("Player " + j + " got \t" + score[j] + ((score[j] > 21) ? "\tBust!" : ((score[j] == 21) ? "\tBlackjack!" : "")));
@@ -112,22 +143,23 @@ public class Blackjack {
 			
 			String winners = "";
 			String pushers = "";
-			if (score[0] <= 21 && (score[0] > score[p-1] || score[p-1] > 21)) {
+			if (score[0] <= 21 && (score[0] > score[p+1] || score[p+1] > 21)) {
 				winners = winners + "Human ";
 			}
-			if (score[0] <= 21 && score[0] == score[p-1]) {
+			if (score[0] <= 21 && score[0] == score[p+1]) {
 				pushers = pushers + "Human ";
 			}
 			for (int j = 1; j < score.length-1; j++) {
-				if (score[j] <= 21 && (score[j] > score[p-1] || score[p-1] > 21)) {
+				if (score[j] <= 21 && (score[j] > score[p+1] || score[p+1] > 21)) {
 					winners = winners + "Player " + j + " ";
 				}
-				if (score[j] <= 21 && score[j] == score[p-1]) {
+				if (score[j] <= 21 && score[j] == score[p+1]) {
 					pushers = pushers + "Player " + j + " ";
 				}
 			}
 			System.out.println("Winners: " + winners);
 			System.out.println("Pushers: " + pushers);
+			System.out.println("");
 			
 			
 			
