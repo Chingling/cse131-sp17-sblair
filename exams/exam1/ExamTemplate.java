@@ -4,7 +4,7 @@ public class ExamTemplate {
 	public static int[] question1() {
 		// feel free to modify the declaration of answer as necessary
 		int[] answer = new int[50];
-	
+		
 		answer[0] = 3;
 		answer[1] = 0;
 		answer[2] = 2;
@@ -21,17 +21,17 @@ public class ExamTemplate {
 		// feel free to modify the declaration of answer as necessary
 		boolean[] answer = new boolean[50];
 		
-		int [] sieve = new int[50];
+		int [] primes = new int[50];
 			
-		for (int i = 0; i < sieve.length - 1; i++) {
-			sieve[i] = (i+2);
+		for (int i = 0; i < primes.length - 1; i++) {
+			primes[i] = (i+2);
 		}
 
-		for (int k = 0; k < sieve.length; k++) {
-			for (int i = 2; i < sieve.length; i++) {
-				for (int j = i; j < sieve.length; j++){ 
-					if (sieve[j] % (i) == 0) {
-						sieve[j] = (0);
+		for (int k = 0; k < primes.length; k++) {
+			for (int i = 2; i < primes.length; i++) {
+				for (int j = i; j < primes.length; j++){ 
+					if (primes[j] % (i) == 0) {
+						primes[j] = (0);
 					}	
 				}	
 			}
@@ -39,7 +39,7 @@ public class ExamTemplate {
 		
 		answer[1] = true;
 		for (int i = 0; i < 50; i++)  {
-			if (sieve[i] != 0) {
+			if (primes[i] != 0) {
 				answer[i+2] = true;
 				}
 		}
@@ -86,10 +86,11 @@ public class ExamTemplate {
 				answer[i] = i + " is NONPRIME";
 			}
 		}
-		
 		// don't change the return statement
 		return answer;
+		
 	}
+	
 
 	public static void main(String[] args) {
 		/*
