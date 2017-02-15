@@ -1,6 +1,7 @@
 package lab4;
 
 import cse131.ArgsProcessor;
+import sedgewick.StdAudio;
 import sedgewick.StdDraw;
 
 public class BumpingBalls {
@@ -25,8 +26,8 @@ public class BumpingBalls {
         double vy[] = new double [balls];
         
         for (int i = 0; i < balls; i++) {
-        	dx[i] = 2 * (Math.random() - 0.5) - radius;
-        	dy[i] = 2 * (Math.random() - 0.5) - radius;
+        	dx[i] = 2 * (Math.random() - 0.5 + radius);
+        	dy[i] = 2 * (Math.random() - 0.5 + radius);
         	vx[i] = Math.random() / 40.0;
         	vy[i] = Math.random() / 40.0;
         }
@@ -67,6 +68,9 @@ public class BumpingBalls {
         					vy[i] = vy[j];
         					vx[j] = oldX;
         					vy[j] = oldY;
+        					
+        					StdAudio.play("sound/boing3.au");
+        					
         				}
 
         			}
@@ -106,6 +110,7 @@ public class BumpingBalls {
             StdDraw.setPenColor(StdDraw.RED);
             for (int i = 0; i < balls; i++) {
             	StdDraw.filledCircle(dx[i], dy[i], radius); 
+            	StdDraw.picture(dx[i], dy[i], "images/obamaface.png", radius + 0.15, radius + 0.15);
             }
             
             //Show frame
