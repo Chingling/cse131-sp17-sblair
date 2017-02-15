@@ -1,4 +1,4 @@
-package eyeballs;
+package Eyeballs;
 
 import java.awt.Color;
 
