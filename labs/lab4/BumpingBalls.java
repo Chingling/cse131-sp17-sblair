@@ -25,8 +25,8 @@ public class BumpingBalls {
         double vy[] = new double [balls];
         
         for (int i = 0; i < balls; i++) {
-        	dx[i] = 2 * (Math.random() - 0.5);
-        	dy[i] = 2 * (Math.random() - 0.5);
+        	dx[i] = 2 * (Math.random() - 0.5) - radius;
+        	dy[i] = 2 * (Math.random() - 0.5) - radius;
         	vx[i] = Math.random() / 40.0;
         	vy[i] = Math.random() / 40.0;
         }
@@ -52,6 +52,14 @@ public class BumpingBalls {
         					if (dy[j] > dy[i]) {
         						dy[i] = dy[i] - ((2 * radius) - distance);
         					}
+        					if (dx[j] < dx[i]) {
+        						dx[i] = dx[i] + ((2 * radius) - distance);
+        					}
+        					if (dx[j] < dx[i]) {
+        						dx[i] = dx[i] + ((2 * radius) - distance);
+        					}
+        					
+        					
         					
         					double oldX = vx[i];
         					double oldY = vy[i];
@@ -67,10 +75,10 @@ public class BumpingBalls {
         		// Wall Bounce
         		
         		if (Math.abs(dx[i] + vx[i]) > 1.0) {
-        			dx[i] = 1 - vx[i];
+        			dx[i] = 1 - radius - vx[i];
         		}
         		if (Math.abs(dy[i] + vy[i]) > 1.0) {
-        			dy[i] = 1 - vy[i];
+        			dy[i] = 1 - radius - vy[i];
         		}
         		
         		if (Math.abs(dx[i] + vx[i]) > 1.0 - radius) {
@@ -102,46 +110,6 @@ public class BumpingBalls {
             
             //Show frame
             StdDraw.show(speed);
-            
-            /*for (int i = 0; i < balls; i++) {
-        		for (int j = 1; j < balls; j++) {
-        			if (i == j) {
-        			}
-        			else {
-        				double distance = Math.sqrt(Math.pow((dx[i] - dx[j]), 2) + Math.pow((dy[i] - dy[j]), 2));
-            			while (distance <= 2 * radius) {
-            				System.out.println(distance);
-            				if (Math.abs(dx[i] + (0.0001 * vx[i])) > 1.0 - radius) {
-                    			vx[i] = -vx[i];
-                    		}
-                    		if (Math.abs(dy[i] + (0.0001 * vy[i])) > 1.0 - radius) {
-                    			vy[i] = -vy[i];
-                    		}
-            				dx[i] = dx[i] + (0.1 * vx[i]); 
-                    		dy[i] = dy[i] + (0.1 * vy[i]); 
-                    		dx[j] = dx[j] + (0.1 * vx[j]); 
-                    		dy[j] = dy[j] + (0.1 * vy[j]);
-                    		
-                    		distance = Math.sqrt(Math.pow((dx[i] - dx[j]), 2) + Math.pow((dy[i] - dy[j]), 2));
-                    		
-                    		StdDraw.clear();
-                            StdDraw.setPenColor(StdDraw.BLUE);
-                            StdDraw.filledSquare(0, 0, 1.0);
-
-                            StdDraw.setPenColor(StdDraw.RED);
-                            for (int k = 0; k < balls; k++) {
-                            	StdDraw.filledCircle(dx[k], dy[k], radius); 
-                            }
-                            
-                            StdDraw.show(1);
-            			}
-        			}
-        			
-        			
-        		} 
-            }*/
-            
-            
             
             
         }
