@@ -69,7 +69,7 @@ public class BumpingBalls {
         					vx[j] = oldX;
         					vy[j] = oldY;
         					
-        					StdAudio.play("sound/boing3.au");
+        					StdAudio.play("sound/obamaout.au");
         					
         				}
 
@@ -110,7 +110,7 @@ public class BumpingBalls {
             StdDraw.setPenColor(StdDraw.RED);
             for (int i = 0; i < balls; i++) {
             	StdDraw.filledCircle(dx[i], dy[i], radius); 
-            	StdDraw.picture(dx[i], dy[i], "images/obamaface.png", radius + 0.15, radius + 0.15);
+            	StdDraw.picture(dx[i], dy[i], "images/obamaface.png", radius + 0.1, radius + 0.1);
             }
             
             //Show frame
