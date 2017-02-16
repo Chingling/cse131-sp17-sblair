@@ -11,7 +11,7 @@ public class sieve {
 		System.out.print("Primes under " + n + " = ");
 		
 		for (int i = 0; i < sieve.length - 1; i++) {
-			sieve[i + 2] = (i+2);
+			sieve[i] = (i + 2);
 		}
 
 		for (int k = 0; k < sieve.length; k++) {
@@ -25,7 +25,7 @@ public class sieve {
 			
 		}
 		if (sieve[k] != 0){
-		System.out.print(sieve[k] + ", ");
+		System.out.print(sieve[k] + " ");
 		}
 		}
 		
