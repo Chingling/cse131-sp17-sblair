@@ -58,8 +58,8 @@ public class Flag {
 				while(true){
 
 					// play it using standard audio
-					StdAudio.play(a);
-					StdDraw.pause(500);
+					StdAudio.play("sound/obamaout.au");
+					StdDraw.pause(1000);
 
 				}
 			}
