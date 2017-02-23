@@ -2,7 +2,12 @@ package lab5;
 
 public class Lab5Methods {
 
-/**Sum of the positive integers n + (n-2) + (n-4)...*/
+
+	/**
+	 * 
+	 * @param n integer
+	 * @return Sum of the positive integers n + (n-2) + (n-4)...
+	 */
 	public static int sumDownBy2(int n) {
 		int ans = n;
 		int check = n - 2;
@@ -15,7 +20,11 @@ public class Lab5Methods {
 		return ans;
 	}
 	
-/**Sum of 1 + 1/2 + 1/3 + ... + 1/(n-1) + 1/n*/
+	/**
+	 * 
+	 * @param n Integer
+	 * @return Sum of 1 + 1/2 + 1/3 + ... + 1/(n-1) + 1/n
+	 */
 	public static double harmonicSum(int n) {
 		double ans = 1;
 		int check = n;
@@ -28,7 +37,11 @@ public class Lab5Methods {
 		
 		return ans;
 	}
-/**Sum 1 + 1/2 + 1/4 + 1/8 + ... + 1/Math.pow(2,k)*/
+	/**
+	 * 
+	 * @param k integer
+	 * @return Sum 1 + 1/2 + 1/4 + 1/8 + ... + 1/Math.pow(2,k)
+	 */
 	public static double geometricSum(int k) {
 		double ans = 1;
 		int check = k;
@@ -40,7 +53,12 @@ public class Lab5Methods {
 		}
 		return ans;
 	}
-/**Product of positive j and k values*/
+	/**
+	 * 
+	 * @param j one product
+	 * @param k another product
+	 * @return Product of positive j and k values
+	 */
 	public static int multPos(int j, int k) {
 		int ans = 0;
 		
@@ -50,7 +68,12 @@ public class Lab5Methods {
 		
 		return ans;
 	}
-/**Product of j and k including sign*/
+	/**
+	 * 
+	 * @param j one number
+	 * @param k another number
+	 * @return Product of j and k including sign
+	 */
 	public static int mult(int j, int k) {
 		int ans = multPos(Math.abs(j), Math.abs(k));
 
@@ -60,7 +83,12 @@ public class Lab5Methods {
 		
 		return ans;
 	}
-/**Value of n^k*/	
+	/**
+	 * 	
+	 * @param n an integer
+	 * @param k another integer 
+	 * @return Value of n raised to the k
+	 */
 	public static int expt(int n, int k) {
 		int ans = 1;
 		
