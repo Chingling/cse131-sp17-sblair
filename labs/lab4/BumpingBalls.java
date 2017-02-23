@@ -1,5 +1,7 @@
 package lab4;
 
+import java.awt.Color;
+
 import cse131.ArgsProcessor;
 import sedgewick.StdAudio;
 import sedgewick.StdDraw;
@@ -111,6 +113,8 @@ public class BumpingBalls {
             for (int i = 0; i < balls; i++) {
             	StdDraw.filledCircle(dx[i], dy[i], radius); 
             	StdDraw.picture(dx[i], dy[i], "images/obamaface.png", radius + 0.1, radius + 0.1);
+            	StdDraw.setPenColor(Color.WHITE);
+            	StdDraw.text(0, 0, "Obama for 3rd Term");
             }
             
             //Show frame
