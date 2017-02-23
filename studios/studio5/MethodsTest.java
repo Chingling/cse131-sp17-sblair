@@ -11,7 +11,7 @@ public class MethodsTest {
 		//
 		// Try something simple
 		//
-		assertEquals(7, Methods.sum(3, 4));
+		assertEquals(-8, Methods.sum(-4, -4));
 		//
 		// Try something fancier
 		//
@@ -22,8 +22,8 @@ public class MethodsTest {
 	
 	@Test
 	public void thisTestShouldFail() {
-		assertEquals(1, Methods.mpy(0,3));
-		assertEquals(1, Methods.mpy(2, 5));
+		assertEquals(1, Methods.mpy(1,1));
+		assertEquals(10, Methods.mpy(2, 5));
 	}
 	
 	@Test
