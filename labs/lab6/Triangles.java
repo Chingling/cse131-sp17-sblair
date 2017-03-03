@@ -12,23 +12,23 @@ public class Triangles {
 			return;
 		}
 		
-		double lengthX = Math.abs(z - x);
-		double lengthY = Math.abs(a - b);
+		//double lengthX = Math.abs(z - x);
+		//double lengthY = Math.abs(a - b);
 		
 		double whiteX [] = {(x+y)/2, (y+z)/2, (z+x)/2};
 		double whiteY [] = {(a+b)/2, (b+c)/2, c};
 		
 		//StdDraw.clear();
 		StdDraw.filledPolygon(whiteX, whiteY);
-		System.out.println(x + " " + y + " " + z + " " + a + " " + b + " " + c + " " + d);
+		//System.out.println(x + " " + y + " " + z + " " + a + " " + b + " " + c + " " + d);
 		StdDraw.pause(5);
 		
 		trig(x,whiteX[0],whiteX[2],a,whiteY[0],whiteY[2],d/2); //lower left
-		System.out.println("Done ll");
+		//System.out.println("Done ll");
 		trig(whiteX[0],y,whiteX[1],whiteY[0],b,whiteY[1],d/2); //upper
-		System.out.println("Done up");
+		//System.out.println("Done up");
 		trig(whiteX[2],whiteX[1],z,whiteY[2],whiteY[1],c,d/2); //lower right
-		System.out.println("Done lr");
+		//System.out.println("Done lr");
 		
 	}
 
