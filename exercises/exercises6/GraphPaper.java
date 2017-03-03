@@ -21,20 +21,20 @@ public class GraphPaper {
 		//  the square (divide into 4 portions). Your code goes
 		//  below here:
 		//
-		
-		// 
-		// Now, after you have drown athose two lines,
-		// let's pause to accentuate the recursive drama
-		//
+		StdDraw.line(llx, lly+size/2, llx+size, lly+size/2);
+		StdDraw.line(llx+size/2, lly, llx+size/2, lly+size);
+		System.out.println(llx + " " + lly + " " + size);
 		StdDraw.pause(500);
-		//
-		//
-		// Now recursively consider the
-		//   lower left, uppert left, upper right, lower right
-		//   subcases
-		//   Your code for those subcases should go below here:
-		//
-
+		
+		gp(llx, lly, size/2);					//lower left
+		System.out.println("Done ll");
+		gp(llx, lly+size/2, size/2);			//upper left
+		System.out.println("Done ul");
+		gp(llx+size/2, lly+size/2, size/2);		//upper right
+		System.out.println("Done ur");
+		gp(llx+size/2, lly, size/2);			//lower right
+		System.out.println("Done lr");
+		
 		
 	}
 
