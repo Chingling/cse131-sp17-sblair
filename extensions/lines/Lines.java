@@ -12,7 +12,15 @@ public class Lines {
 	 * @param y2 y coordinate of ending point
 	 */
 	public static void drawLine(double x1, double y1, double x2, double y2) {
-		// FIXME -- fill in this method according to the instructions
+		if (Math.sqrt(Math.pow(x2-x1, 2) + Math.pow(y2-y1, 2)) < 0.005) {
+			return;
+		}
+		
+		StdDraw.setPenRadius(0.01);
+		StdDraw.point(x1, y1);
+		StdDraw.point(x2, y2);
+		drawLine(x1,y1,(x1+x2)/2,(y1+y2)/2);
+		drawLine((x1+x2)/2,(y1+y2)/2,x2,y2);
 	}
 	
 	
@@ -24,6 +32,7 @@ public class Lines {
 		//
 		// Test the drawing program
 		//
+		StdDraw.show(10);
 		drawLine(0,0,1,1); // lower left to upper right
 		drawLine(0,1,1,0); // upper left to lower right
 		
@@ -37,6 +46,7 @@ public class Lines {
 			drawLine(s, s, s, r);
 			drawLine(s, r, r, r);
 		}
+		StdDraw.show(10);
 		System.out.println("done drawing");
 	}
 
