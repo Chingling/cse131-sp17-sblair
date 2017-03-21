@@ -6,8 +6,6 @@ public class ExamTemplate {
 	public static void main(String[] args) {
 		//Yes, this is supposed to be blank
 
-		drawLString(koch(4));
-
 	}
 
 	public static String koch(int n) {
