@@ -5,7 +5,8 @@ import sedgewick.StdDraw;
 public class ExamTemplate {
 	public static void main(String[] args) {
 		//Yes, this is supposed to be blank
-		
+
+		drawLString(koch(4));
 
 	}
 
@@ -17,7 +18,7 @@ public class ExamTemplate {
 		return koch(n-1).replaceAll("F", "F+F-F-F+F");
 	}
 
-	public static String Dragon(int n) {
+	public static String dragon(int n) {
 		String answer = "F-H";
 		for (int i = 0; i < n; i++) {
 			int j = 0;
