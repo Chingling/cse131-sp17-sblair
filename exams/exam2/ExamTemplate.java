@@ -5,29 +5,7 @@ import sedgewick.StdDraw;
 public class ExamTemplate {
 	public static void main(String[] args) {
 		//Yes, this is supposed to be blank
-
-//		String answer = "F-H-H";
-//		if (answer.charAt(4) == 'F') {
-//			String start1 = answer.substring(0, 0);
-//			String start = answer.substring(4, 4+1);
-//
-//			String end = answer.substring(4+1,answer.length());
-//
-//			String temp = start.replaceAll("F", "F-H");
-//			answer = temp + end;
-//			System.out.println(answer);
-//		}
-//		if (answer.charAt(4) == 'H') {
-//			String start = answer.substring(4, 4+1);
-//
-//			String end = answer.substring(4+1,answer.length());
-//
-//			String temp = start.replaceAll("H", "F+H");
-//			answer = temp + end;
-//			System.out.println(answer);
-//		}
 		
-		System.out.println(Dragon(2));
 
 	}
 
