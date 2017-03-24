@@ -13,8 +13,11 @@ public class Course {
 		this.credits = credits;
 		this.startingSeats = seats;
 		this.seats = seats;
+		Student s = new Student("", "", 0);
 		this.roster = new Student [seats];
-		this.student = new Student("John", "Smith", 000000);
+		for (int i = 0; i < this.startingSeats; i++) {
+			this.roster[i] = s;
+		}
 	}
 
 	public void setName(String name) {
@@ -41,36 +44,41 @@ public class Course {
 		return this.seats;
 	}
 	
-	public void setRoster(Student s) {
-		this.student = s;
-		this.roster = new Student [this.seats];
-		for (int i = 0; i < this.seats; i++) {
-			this.roster[i] = this.student;
-		}
-	}
 
 	public boolean addStudent(Student s) {
 		boolean check = true;
-		System.out.println(this.roster[0].getName());
 			for (int i = 0; i < this.startingSeats; i++) {
-				
-				if (this.roster[i] == null) ;
-				else {
 					if (s.getStudentID() == this.roster[i].getStudentID()) check = false;
 				}
-			}
-		System.out.println(check);
 		if (check == true) {
-			if (this.seats == 0) ;
+			if (this.seats == 0) {
+				check = false;
+			}
 			else {
 				roster[this.seats-1] = s;
 				this.seats = this.seats - 1;
 				check = true;
 			}
 		}
-		
-		
 		return check;
+	}
+	
+	public double averageGPA() {
+		double score = 0;
+		int students = 0;
+		for (int i = 0; i < this.roster.length; i++) {
+			if (this.roster[i].getStudentID() != 0) {
+				score = score + this.roster[i].getGPA();
+				students = students + 1;
+			}
+		}
+		double GPA = score/students;
+		
+		return GPA;
+	}
+	
+	public String toString() {
+		return this.name + " " + this.credits;
 	}
 
 

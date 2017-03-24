@@ -157,7 +157,7 @@ public class StudentAndCourseTest extends TestCase {
 			for (int j = 0; j < s; j++) {
 				String aa =  "" + (Math.random() * 5000);
 				String b =  "" + (Math.random() * 5000);
-				int cc = (int)Math.random() * 500000;
+				int cc = (int)(Math.random() * 500000);
 				Student s2 = new Student(aa, b, cc);
 				boolean added = c.addStudent(s2);
 				assertTrue("addStudent not working properly", added);
@@ -169,7 +169,7 @@ public class StudentAndCourseTest extends TestCase {
 			for (int j = 0; j < s; j++) {
 				String aa =  "" + (Math.random() * 5000);
 				String b =  "" + (Math.random() * 5000);
-				int cc = (int)Math.random() * 500000;
+				int cc = (int)(Math.random() * 500000);
 				Student s2 = new Student(aa, b, cc);
 				boolean added = c.addStudent(s2);
 
@@ -189,7 +189,7 @@ public class StudentAndCourseTest extends TestCase {
 			for(int i = 0; i < s; i++) {
 				String aa =  "" + (Math.random() * 5000);
 				String b =  "" + (Math.random() * 5000);
-				int cc = (int)Math.random() * 500000;
+				int cc = (int)(Math.random() * 500000);
 				Student s2 = new Student(aa, b, cc);
 				double g = Math.round(Math.random() * 4000) / 1000.0;
 				gpaSum += g;
@@ -204,7 +204,7 @@ public class StudentAndCourseTest extends TestCase {
 	public void testCourseToString() {
 		for (int i = 0; i < 100; i++) {
 			double a =  (Math.random() * 5000);
-			int c = (int)Math.random() * 500000;
+			int c = (int)(Math.random() * 500000);
 			Course cc = new Course("" + a, c, c);
 			assertTrue("course toString does not contain course name", cc.toString().contains("" + a));
 			assertTrue("course toString does not contain credits", cc.toString().contains("" + c));
