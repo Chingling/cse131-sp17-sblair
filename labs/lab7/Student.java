@@ -66,23 +66,6 @@ public class Student {
 		return getName() + " " + getStudentID();
 	}
 	
-	private Student student;
-	private String legacyFirst;
-	private String legacyLast;
-	private int legacyID;
-	private double legacyGPA;
-	private int legacyCredits;
-	
-	public Student(Student s) {
-		this.student = s;
-		this.legacyFirst = this.fullName;
-		this.legacyLast = s.getName();
-		this.legacyID = this.id + s.getStudentID();
-		this.legacyGPA = (this.GPA + s.getGPA())/2;
-		if (this.credits > s.getCredits()) this.legacyCredits = this.credits;
-		else this.legacyCredits = s.getCredits();
-	}
-	
 	public Student createLegacy(Student s) {
 		Student ss = new Student(this.fullName, s.getName(), this.id + s.getStudentID());
 
