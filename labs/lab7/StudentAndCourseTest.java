@@ -195,7 +195,7 @@ public class StudentAndCourseTest extends TestCase {
 				gpaSum += g;
 				s2.submitGrade(g, 1);
 				c.addStudent(s2);
-				assertEquals("course averageGPA() not working properly", gpaSum / (i + 1), c.averageGPA(), 0.01);
+				assertEquals("course averageGPA() not working properly", gpaSum / (i + 1), c.averageGPA(), 0.05);
 			}
 		}
 	}

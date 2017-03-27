@@ -77,6 +77,16 @@ public class Course {
 		return GPA;
 	}
 	
+	public String generateRoster() {
+		String list = "";
+		for (int i = 0; i < this.roster.length; i++) {
+			if (this.roster[i].getStudentID() != 0) {
+				list = list + this.roster[i].getName() + " ";
+			}
+		}
+		return list;
+	}
+	
 	public String toString() {
 		return this.name + " " + this.credits;
 	}

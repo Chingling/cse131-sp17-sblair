@@ -25,6 +25,7 @@ public class Test {
 			System.out.println(added);
 		}
 		
+		System.out.println(c.generateRoster());
 	}
 
 }
