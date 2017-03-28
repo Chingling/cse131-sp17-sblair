@@ -44,7 +44,11 @@ public class Course {
 		return this.seats;
 	}
 	
-
+	/**
+	 * add a student to the roster if not already present
+	 * @param s student to be added
+	 * @return boolean whether or not student was added successfully
+	 */
 	public boolean addStudent(Student s) {
 		boolean check = true;
 			for (int i = 0; i < this.startingSeats; i++) {
@@ -62,7 +66,10 @@ public class Course {
 		}
 		return check;
 	}
-	
+	/**
+	 * take an average GPA of all students in course
+	 * @return average GPA of course students
+	 */
 	public double averageGPA() {
 		double score = 0;
 		int students = 0;
@@ -76,7 +83,10 @@ public class Course {
 		
 		return GPA;
 	}
-	
+	/**
+	 * generate a roster of all students as a string
+	 * @return string of roster
+	 */
 	public String generateRoster() {
 		String list = "";
 		for (int i = 0; i < this.roster.length; i++) {
@@ -86,7 +96,9 @@ public class Course {
 		}
 		return list;
 	}
-	
+	/**
+	 * return name and roster credits as string
+	 */
 	public String toString() {
 		return this.name + " " + this.credits;
 	}
