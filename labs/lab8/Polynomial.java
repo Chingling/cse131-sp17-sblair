@@ -11,33 +11,91 @@ public class Polynomial {
 	 * Constructs a Polynomial with no terms yet.
 	 */
 	public Polynomial() {
-		//
-		// Set the instance variable (list) to be a new linked list of Double type
-		//
-		list = null;   // FIXME
+		this.list = new LinkedList<Double>();
 	}
 
 	public String toString() {
-		return "A polynomial"; // FIXME
+		String result = "";
+		for (int i = list.size() - 1; i > -1; i--) {
+			if (i == list.size() - 1) {
+				if (list.get(i) < 0) result = result + "-";
+			}
+			if (i != list.size() - 1) {
+				if (list.get(i) > 0) result = result + " + ";
+				if (list.get(i) < 0) result = result + " - ";
+			}
+			if (i == 0) {
+				result = result + (int)(Math.abs(list.get(i)));
+			}
+			if (list.get(i) == 0) {
+
+			}
+			if (i != 0 && list.get(i) != 0) {
+				result = result + (int)(Math.abs(list.get(i))) + "x^" + i;
+			}
+		}
+		return result;
 	}
 
 	public Polynomial addTerm(double coeff) {
-		//
-		// FIXME
-		//
+		list.add(coeff);
 		return this;  // required by lab spec
 	}
+	
+	public double getTerm(int i) {
+		return list.get(i);
+	}
+	
+	public int getOrder() {
+		return list.size();
+	}
 
+
+	public double evalRec(double x, double sum, int i) {
+		if (i == 0) return sum;
+		double newSum = sum*x + list.get(i - 1);
+		return evalRec(x, newSum, i-1);
+	}
 	public double evaluate(double x) {
-		return Math.random();  // FIXME
+		if (list.size() == 0) return 0;
+		int order = list.size()-1;
+		return evalRec(x, list.getLast(), order);
 	}
-	
+
 	public Polynomial derivative() {
-		return null;   // FIXME
+		Polynomial p = new Polynomial();
+		for (int i = 1; i < list.size(); i++) {
+			double term = list.get(i)*(i);
+			p.addTerm(term);
+		}
+		
+		return p;
 	}
-	
+
 	public Polynomial sum(Polynomial another) {
-		return null;   // FIXME
+		Polynomial p = new Polynomial();
+		if (list.size() > another.getOrder()) {
+			for (int i = 0; i < another.getOrder(); i++) {
+				p.addTerm(another.getTerm(i) + list.get(i));
+			}
+			for (int i = another.getOrder(); i < list.size(); i++) {
+				p.addTerm(list.get(i));
+			}
+		}
+		if (list.size() < another.getOrder()) {
+			for (int i = 0; i < list.size(); i++) {
+				p.addTerm(another.getTerm(i) + list.get(i));
+			}
+			for (int i = list.size(); i < another.getOrder(); i++) {
+				p.addTerm(another.getTerm(i));
+			}
+		}
+		if (list.size() == another.getOrder()) {
+			for (int i = 0; i < list.size(); i++) {
+				p.addTerm(another.getTerm(i) + list.get(i));
+			}
+		}
+		return p;
 	}
 
 	/**
