@@ -32,7 +32,7 @@ public class Lines {
 		//
 		// Test the drawing program
 		//
-		StdDraw.show(10);
+		//StdDraw.show(10);
 		drawLine(0,0,1,1); // lower left to upper right
 		drawLine(0,1,1,0); // upper left to lower right
 		
@@ -46,7 +46,7 @@ public class Lines {
 			drawLine(s, s, s, r);
 			drawLine(s, r, r, r);
 		}
-		StdDraw.show(10);
+		//StdDraw.show(10);
 		System.out.println("done drawing");
 	}
 
