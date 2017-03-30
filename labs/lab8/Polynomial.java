@@ -14,6 +14,9 @@ public class Polynomial {
 		this.list = new LinkedList<Double>();
 	}
 
+	/**
+	 * Converts Polynomial to String with highest order first and zero/zero powers omitted
+	 */
 	public String toString() {
 		String result = "";
 		for (int i = list.size() - 1; i > -1; i--) {
@@ -37,31 +40,61 @@ public class Polynomial {
 		return result;
 	}
 
+	/**
+	 * Adds a term as an order of x higher to the Polynomial
+	 * @param coeff Coefficient of x term
+	 * @return 
+	 */
 	public Polynomial addTerm(double coeff) {
 		list.add(coeff);
 		return this;  // required by lab spec
 	}
 	
+	/**
+	 * Get the coefficient at location i
+	 * @param i index of list
+	 * @return coefficient
+	 */
 	public double getTerm(int i) {
 		return list.get(i);
 	}
 	
+	/**
+	 * Get the order of the Polynomial
+	 * @return order
+	 */
 	public int getOrder() {
 		return list.size();
 	}
 
-
+	/**
+	 * Recursive helper for evaluate, generates sum of polynomial at certain x
+	 * @param x coordinate
+	 * @param sum sum of next level order x
+	 * @param i iteration level
+	 * @return sum of Polynomial recursively
+	 */
 	public double evalRec(double x, double sum, int i) {
 		if (i == 0) return sum;
 		double newSum = sum*x + list.get(i - 1);
 		return evalRec(x, newSum, i-1);
 	}
+	
+	/**
+	 * Evaluate Polynomial at given x coordinate
+	 * @param x coordinate
+	 * @return sum of Polynomial
+	 */
 	public double evaluate(double x) {
 		if (list.size() == 0) return 0;
 		int order = list.size()-1;
 		return evalRec(x, list.getLast(), order);
 	}
 
+	/**
+	 * Take the derivative of Polynomial
+	 * @return Polynomial
+	 */
 	public Polynomial derivative() {
 		Polynomial p = new Polynomial();
 		for (int i = 1; i < list.size(); i++) {
@@ -72,6 +105,11 @@ public class Polynomial {
 		return p;
 	}
 
+	/**
+	 * Sum two Polynomials together
+	 * @param another Second Polynomial to be summed
+	 * @return Polynomial sum
+	 */
 	public Polynomial sum(Polynomial another) {
 		Polynomial p = new Polynomial();
 		if (list.size() > another.getOrder()) {
