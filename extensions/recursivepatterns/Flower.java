@@ -25,8 +25,7 @@ public class Flower {
 		
 		//StdDraw.pause(100);
 		
-		//center
-		flower(palette, x, y, halfWidth/2, halfHeight/2, count+1);
+		
 		//left
 		flower(palette, x-(halfWidth/2), y, halfWidth/2, halfHeight/2, count+1);
 		//top
@@ -35,6 +34,8 @@ public class Flower {
 		flower(palette, x+(halfWidth/2), y, halfWidth/2, halfHeight/2, count+1);
 		//bottom
 		flower(palette, x, y-(halfHeight/2), halfWidth/2, halfHeight/2, count+1);
+		//center
+		flower(palette, x, y, halfWidth/2, halfHeight/2, count+1);
 	}
 	
 		
