@@ -82,7 +82,7 @@ public class Polynomial {
 	
 	/**
 	 * Evaluate Polynomial at given x coordinate
-	 * @param x coordinate
+	 * @param x co n    ordinate
 	 * @return sum of Polynomial
 	 */
 	public double evaluate(double x) {
