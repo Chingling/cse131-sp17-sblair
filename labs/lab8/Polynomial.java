@@ -6,6 +6,7 @@ import java.util.LinkedList;
 public class Polynomial {
 
 	final private LinkedList<Double> list;
+	private Iterator<Double> iter;
 
 	/**
 	 * Constructs a Polynomial with no terms yet.
@@ -80,6 +81,12 @@ public class Polynomial {
 		return evalRec(x, newSum, i-1);
 	}
 	
+	public double ListIterator(double x, double sum) {
+		if (iter.hasNext() == false) return sum;
+		double newSum = sum*x + iter.next();
+		return ListIterator(x, newSum);
+	}
+	
 	/**
 	 * Evaluate Polynomial at given x coordinate
 	 * @param x co n    ordinate
@@ -87,8 +94,10 @@ public class Polynomial {
 	 */
 	public double evaluate(double x) {
 		if (list.size() == 0) return 0;
-		int order = list.size()-1;
-		return evalRec(x, list.getLast(), order);
+		this.iter = this.list.descendingIterator();
+		iter.next();
+//		int order = list.size()-1;
+		return ListIterator(x, list.getLast());
 	}
 
 	/**
