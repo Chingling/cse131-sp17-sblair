@@ -27,7 +27,9 @@ public class ListItem {
 	 * @return
 	 */
 	public ListItem duplicate() {
-		return null; // FIXME
+		if (this.next == null) return null;
+		ListItem s = new ListItem(this.number, duplicate());
+		return s;
 	}
 
 	/**
@@ -37,7 +39,8 @@ public class ListItem {
 	 * @return
 	 */
 	public int length() {
-		return 0; // FIXME
+		if (this.next == null) return 0;
+		return 1 + length();
 	}
 
 	/**
