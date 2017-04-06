@@ -20,11 +20,12 @@ package studio9;
 public class ListItem {
 	
 	final private int      value;  // the contained value in this item
-	private ListItem next;   // the next item in this list
+	private ListItem next, prev;   // the next item in this list
 	
-	public ListItem(int value, ListItem next) {
+	public ListItem(int value, ListItem next, ListItem prev) {
 		this.value = value;
 		this.next  = next;
+		this.prev = prev;
 	}
 	
 	/**
@@ -39,6 +40,16 @@ public class ListItem {
 	//
 	public ListItem getNext() {
 		return next;
+	}
+	
+	public void setPrev(ListItem newPrev) {
+		this.prev = newPrev;
+	}
+
+	// a getter, or accessor
+	//
+	public ListItem getPrev() {
+		return prev;
 	}
 
 	public int getValue() {

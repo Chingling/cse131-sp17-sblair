@@ -106,7 +106,7 @@ public class SinglyLinkedListWithSentinel implements IntList {
 		// put the stuff in
 		// this could be a "while" loop but let's use for
 		//
-		for (ListItem p = this.head.getNext(); p != null; p = p.getNext()) {
+	for (ListItem p = this.head.getNext(); p != null; p = p.getNext()) {
 			ans = ans + p.getValue() + " ";
 		}
 		ans = ans + "]";
