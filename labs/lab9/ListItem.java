@@ -1,5 +1,6 @@
 package lab9;
 
+import studio9.ListItem;
 
 public class ListItem {
 	//
@@ -20,6 +21,18 @@ public class ListItem {
 		this.next   = next;
 	}
 
+	public void setNext(ListItem newNext) {
+		this.next = newNext;
+	}
+
+	public ListItem getNext() {
+		return next;
+	}
+
+	public int getNum() {
+		return this.number;
+	}
+
 	/**
 	 * Return a copy of this list using recursion.  No
 	 * credit if you use any iteration!  All existing lists should remain
@@ -27,9 +40,9 @@ public class ListItem {
 	 * @return
 	 */
 	public ListItem duplicate() {
-		if (this.next == null) return null;
-		ListItem s = new ListItem(this.number, duplicate());
-		return s;
+		if (this.next == null) return new ListItem(this.number, null);
+		ListItem n = next.duplicate();
+		return new ListItem(this.number, n);
 	}
 
 	/**
@@ -39,8 +52,8 @@ public class ListItem {
 	 * @return
 	 */
 	public int length() {
-		if (this.next == null) return 0;
-		return 1 + length();
+		if (this.next == null) return 1;
+		return 1 + next.length();
 	}
 
 	/**
@@ -53,7 +66,17 @@ public class ListItem {
 	 */
 
 	public ListItem stretch(int n) {
-		return null;  // FIXME
+		ListItem p = duplicate();
+		ListItem s = new ListItem(this.number, this.next);
+		ListItem holder = s;
+		while (p != null) {
+			for (int i = 0; i < n; i++) {
+				holder.setNext(new ListItem(p.getNum(), p.getNext()));
+				holder = holder.next;
+			}
+			p = p.next;
+		}
+		return s.next;
 	}
 
 	/**
@@ -66,7 +89,12 @@ public class ListItem {
 	 */
 
 	public ListItem find(int n) {
-		return null;  // FIXME
+		if (this.number == n) return this;
+		if (this.next != null){
+			if (this.next.number == n) return this.next;
+			else return this.next.find(n);
+		}
+		else return null;
 	}
 
 	/**
@@ -78,7 +106,11 @@ public class ListItem {
 	 */
 
 	public int max() {
-		return 0; // FIXME
+		int max = this.number;
+		for (ListItem p = duplicate(); p != null; p = p.getNext()) {
+			if (p.number > max) max = p.number;
+		}
+		return max;
 	}
 
 	/**
@@ -88,7 +120,15 @@ public class ListItem {
 	 * @return
 	 */
 	public static ListItem evenElements(ListItem ls) {
-		return null;  // FIXME
+		if (ls == null) return null;
+		else {
+			if (ls.number % 2 == 0) {
+				return new ListItem(ls.number,ListItem.evenElements(ls.next));
+			}
+			else {
+				return ListItem.evenElements(ls.next);
+			}
+		}
 	}	
 
 
