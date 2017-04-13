@@ -12,7 +12,12 @@ public class SadCycler {
 	public SadCycler() {
 		this.happy = new HashSet<Long>();
 	}
-	
+	/**
+	 * Take in a base and a long number and run the sad cycles on it
+	 * @param base exponent
+	 * @param n long number
+	 * @return
+	 */
 	public Set<Long> findCycle(int base, long n) {
 		if (this.happy.contains(n)) return this.happy;
 		this.happy.add(n);
@@ -37,7 +42,10 @@ public class SadCycler {
 		return findCycle(base, sum);
 		
 	}
-
+	/**
+	 * take in inputs for the sasdcycles to run
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		ArgsProcessor ap = new ArgsProcessor(args);
 		int base = ap.nextInt("Base");
