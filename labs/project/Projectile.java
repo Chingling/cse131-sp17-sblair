@@ -29,7 +29,6 @@ public class Projectile {
 	}
 
 
-	//return 0 if nothing hit, 1 if player1 hit, 2 if player2 hit
 	public double [] throwP(boolean player1, double initX, double initY) {
 		
 		if (player1 == true) {

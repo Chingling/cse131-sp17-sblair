@@ -4,31 +4,32 @@ import java.awt.Color;
 
 import sedgewick.StdDraw;
 
-public class Players {
-	private double oneX, twoX, bothY;
+public class Players implements CollidableObject {
+	private double oneX, twoX, oneY, twoY;
 
-	public Players(double oneX, double oneY, double bothY) {
+	public Players(double oneX, double twoX, double oneY, double twoY) {
 		this.oneX = oneX;
-		this.twoX = oneY;
-		this.bothY = bothY;
+		this.twoX = twoX;
+		this.oneY = oneY;
+		this.twoY = twoY;
 		StdDraw.setPenColor(Color.RED);
-		StdDraw.filledSquare(this.oneX, this.bothY, 0.01);
+		StdDraw.filledSquare(this.oneX, this.oneY, 0.01);
 		StdDraw.setPenColor(Color.BLUE);
-		StdDraw.filledSquare(this.twoX, this.bothY, 0.01);
+		StdDraw.filledSquare(this.twoX, this.twoY, 0.01);
 	}
 
 	public void redraw() {
 		StdDraw.setPenColor(Color.RED);
-		StdDraw.filledSquare(this.oneX, this.bothY, 0.01);
+		StdDraw.filledSquare(this.oneX, this.oneY, 0.01);
 		StdDraw.setPenColor(Color.BLUE);
-		StdDraw.filledSquare(this.twoX, this.bothY, 0.01);
+		StdDraw.filledSquare(this.twoX, this.twoY, 0.01);
 	}
 
 	public boolean checkCollision(double x, double y) {
-		if (x >= 0.92 && x <= 0.94 && y >= 0.10 && y <= 0.12) {
+		if ((x >= (this.twoX - 0.01)) && (x <= (this.twoX + 0.01)) && (y >= (this.twoY - 0.01)) && (y <= (this.twoY + 0.01))) {
 			return true;
 		}
-		if (x >= 0.06 && x <= 0.08 && y >= 0.10 && y <= 0.12) {
+		if (x >= this.oneX - 0.01 && x <= this.oneX + 0.01 && y >= this.oneY - 0.01 && y <= this.oneY + 0.01) {
 			return true;
 		}
 		else {
