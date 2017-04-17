@@ -24,7 +24,7 @@ public class Powerup implements CollidableObject {
 	}
 
 	public void random() {
-		if (Math.random() < 0.70) {
+		if (Math.random() < 0.70 && this.x.size() <= 2) {
 			double xCoord = (Math.random() * 0.80) + 0.10;
 			double yCoord = (Math.random() * 0.70) + 0.20;
 			int type = (int)((Math.random() * 3));
@@ -41,20 +41,20 @@ public class Powerup implements CollidableObject {
 			StdDraw.setPenColor(color[this.type.get(i)]);
 			StdDraw.filledSquare(this.x.get(i), this.y.get(i), 0.02);
 		}
+		System.out.println(x);
 	}
 
 	public boolean checkCollision(double x, double y) {
-		boolean check = false;
 		for (int i = 0; i < this.x.size(); i++) {
 
 			if ((x >= (this.x.get(i) - 0.02)) && (x <= (this.x.get(i) + 0.02)) && (y >= (this.y.get(i) - 0.02)) && (y <= (this.y.get(i) + 0.02))) {
-				check = true;
+				return true;
 			}
 			else {
-				check = false;
+				return false;
 			}
 		}
-		return check;
+		return false;
 	}
 	
 	public int getType(double x, double y) {
