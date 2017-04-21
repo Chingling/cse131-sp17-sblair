@@ -24,6 +24,10 @@ public class Conway {
 	public int getColumns(){
 		return this.cols;
 	}
+	
+	public boolean [][] getArray() {
+		return this.alive;
+	}
 
 	/**
 	 * Sets the current status of the cell at (row, col)
@@ -120,12 +124,12 @@ public class Conway {
 				if (isAlive(i, j) == false && countLivingNeighbors(i, j) == 3) next.setLiveness(true, i, j);
 			}
 		}
-		for (int i = 0; i < this.rows; i++) {
-			for (int j = 0; j < this.cols; j++) {
-				setLiveness(next.isAlive(i, j), i, j);
+		this.alive = next.getArray();
 			}
-		}
-	}
+		
+	
+
+
 
 	/**
 	 * creates a blinker
