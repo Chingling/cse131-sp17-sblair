@@ -1,9 +1,10 @@
-package project;
+package project.old;
 
 import java.awt.Color;
 import java.util.LinkedList;
 import java.util.List;
 
+import project.CollidableObject;
 import sedgewick.StdDraw;
 
 public class Powerup implements CollidableObject {

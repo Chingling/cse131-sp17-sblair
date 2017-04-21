@@ -18,13 +18,19 @@ public class Players implements CollidableObject {
 		StdDraw.filledSquare(this.twoX, this.twoY, 0.01);
 	}
 
+	/**
+	 * Redraw player scores
+	 */
 	public void redraw() {
 		StdDraw.setPenColor(Color.RED);
 		StdDraw.filledSquare(this.oneX, this.oneY, 0.01);
 		StdDraw.setPenColor(Color.BLUE);
 		StdDraw.filledSquare(this.twoX, this.twoY, 0.01);
 	}
-
+	
+	/**
+	 * Check for collision with Player object in accordance to CollidableObject
+	 */
 	public boolean checkCollision(double x, double y) {
 		if ((x >= (this.twoX - 0.01)) && (x <= (this.twoX + 0.01)) && (y >= (this.twoY - 0.01)) && (y <= (this.twoY + 0.01))) {
 			return true;
