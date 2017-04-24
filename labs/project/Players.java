@@ -27,7 +27,7 @@ public class Players implements CollidableObject {
 		StdDraw.setPenColor(Color.BLUE);
 		StdDraw.filledSquare(this.twoX, this.twoY, 0.01);
 	}
-	
+
 	/**
 	 * Check for collision with Player object in accordance to CollidableObject
 	 */
@@ -41,7 +41,7 @@ public class Players implements CollidableObject {
 		else {
 			return false;
 		}
-		
+
 	}
 
 }

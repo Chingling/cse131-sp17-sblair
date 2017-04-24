@@ -22,9 +22,9 @@ public class GameBoard implements CollidableObject {
 			StdDraw.setPenColor(this.palette[this.colors[i]]);
 			StdDraw.filledRectangle((i * 0.2) + 0.1, this.height[i]/2, 0.1, this.height[i]/2);
 		}
-		
+
 	}
-	
+
 	/**
 	 * Obtain the heights of both Player platforms
 	 * @return Array of heights for Player 1 and Player 2 platforms
@@ -52,7 +52,7 @@ public class GameBoard implements CollidableObject {
 			return true;
 		}
 		else {
-			
+
 			for (int i = 0; i < this.height.length; i++) {
 				System.out.println("hi");
 				double left = (0.2 * i);

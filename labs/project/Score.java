@@ -6,12 +6,12 @@ import sedgewick.StdDraw;
 
 public class Score {
 	private int player1, player2;
-	
+
 	public Score() {
 		this.player1 = 0;
 		this.player2 = 0;
 	}
-	
+
 	/**
 	 * Obtain which Player won the point, display who got the point, and update the score for that player
 	 * @param player1 True for Player 1 score, false for Player 2 score
@@ -30,7 +30,7 @@ public class Score {
 			StdDraw.pause(1500);
 		}
 	}
-	
+
 	/**
 	 * Get the score for Player 1
 	 * @return Player 1 score
@@ -38,7 +38,7 @@ public class Score {
 	public int getPlayer1() {
 		return this.player1;
 	}
-	
+
 	/**
 	 * Get the score for Player 2
 	 * @return Player 2 score
@@ -46,7 +46,7 @@ public class Score {
 	public int getPlayer2() {
 		return this.player2;
 	}
-	
+
 	/**
 	 * Redraw Player score-board on top of screen
 	 */

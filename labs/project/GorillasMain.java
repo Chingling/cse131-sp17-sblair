@@ -42,9 +42,9 @@ public class GorillasMain {
 		int turn = 0;
 
 		while (count == 1) {
-			
-		//Player 1
-			
+
+			//Player 1
+
 			//Initialization
 			initX = 0.05 + 0.02;
 			initY = heights[0] + 0.02;
@@ -83,7 +83,7 @@ public class GorillasMain {
 					turn = 2;
 					StdDraw.pause(1500);
 				}
-				
+
 				//Player collision
 				if (collisionP == true) {
 					s.updateScore(true);
@@ -92,7 +92,7 @@ public class GorillasMain {
 					heights = g.getStartHeights();
 					p = new Players(0.05, 0.95, heights[0] + 0.01, heights[1] + 0.01);
 				}
-				
+
 				//Condition if point limit reached
 				if (s.getPlayer1() == points) {
 					count = 0;
@@ -105,10 +105,10 @@ public class GorillasMain {
 			p.redraw();
 			s.redraw();
 
-		//Player 2
-			
+			//Player 2
+
 			if (count == 1) {
-				
+
 				//Initialization
 				initX = 0.95 - 0.02;
 				initY = heights[1] + 0.02;
@@ -143,7 +143,7 @@ public class GorillasMain {
 
 					boolean collisionP = p.checkCollision(initX, initY);
 					boolean collisionG = g.checkCollision(initX, initY);
-					
+
 					//Ground collision
 					if (collisionG == true) {
 						StdDraw.setPenColor(Color.BLACK);
@@ -151,7 +151,7 @@ public class GorillasMain {
 						turn = 1;
 						StdDraw.pause(1500);
 					}
-					
+
 					//Player collision
 					if (collisionP == true) {
 						s.updateScore(false);
@@ -160,7 +160,7 @@ public class GorillasMain {
 						heights = g.getStartHeights();
 						p = new Players(0.05, 0.95, heights[0] + 0.01, heights[1] + 0.01);
 					}
-					
+
 					//Condition if point limit reached
 					if (s.getPlayer2() == points) {
 						count = 0;
