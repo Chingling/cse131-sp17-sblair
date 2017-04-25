@@ -21,7 +21,7 @@ public class Draw {
 
 	public int startScreen() {
 		ArgsProcessor ap = new ArgsProcessor(this.args);
-		
+
 		//Start screen and get points to win
 		StdDraw.setPenColor(Color.BLACK);
 		StdDraw.text(0.5, 0.5, "GORILLAS");
@@ -41,35 +41,56 @@ public class Draw {
 		redrawAll();
 		return points;
 	}
-	
+
 	public void redrawAll() {
 		StdDraw.clear();
 		g.redraw();
 		p.redraw();
 		s.redraw();
 	}
-	
+
 	public void redrawProjectile() {
 		StdDraw.show(5);
 		redrawAll();
 		StdDraw.show();
 	}
-	
+
 	public void player1() {
 		StdDraw.setPenColor(Color.RED);
 		StdDraw.text(0.10, 0.80, "Player 1");
 	}
-	
+
 	public void player2() {
 		StdDraw.setPenColor(Color.BLUE);
 		StdDraw.text(0.90, 0.80, "Player 2");
 	}
-	
+
+	public void hitAnimation(boolean player) {
+		for (int i = 0; i < 5; i++) {
+			StdDraw.show(0);
+			redrawAll();
+			StdDraw.show();
+			if (player == true) {
+				StdDraw.setPenColor(Color.RED);
+				StdDraw.text(0.5, 0.95, "Player 1 POINT");
+			}
+			else {
+				StdDraw.setPenColor(Color.BLUE);
+				StdDraw.text(0.5, 0.95, "Player 2 POINT");
+			}
+			StdDraw.pause(200);
+			StdDraw.show(0);
+			redrawAll();
+			StdDraw.show();
+			StdDraw.pause(200);
+		}
+	}
+
 	public void reset(GameBoard g, Players p) {
 		this.g = g;
 		this.p = p;
 	}
-	
+
 	public void endScreen() {
 		StdDraw.clear();
 		StdDraw.setPenColor(Color.BLACK);

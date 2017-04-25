@@ -5,12 +5,11 @@ import java.awt.Color;
 import sedgewick.StdDraw;
 
 public class Projectile {
-	private double velocityX, velocityY, time, dtime;
+	private double velocityX, velocityY, dtime;
 
 	public Projectile(double angle, double velocity) {
 		this.velocityX = velocity/10 * Math.cos(angle * (Math.PI/180));
 		this.velocityY = velocity/10 * Math.sin(angle * (Math.PI/180));
-		this.time = 0;
 		this.dtime = 0.001; //0.0005
 	}
 
