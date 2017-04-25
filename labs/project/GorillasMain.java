@@ -15,12 +15,10 @@ public class GorillasMain {
 		double [] heights = g.getStartHeights();
 		Players p = new Players(0.05, 0.95, heights[0] + 0.01, heights[1] + 0.01);
 		Score s = new Score();
-		Draw d = new Draw(g, p, s);
+		Draw d = new Draw(g, p, s, args);
 		StdDraw.clear();
-
-		int points = ap.nextInt("How many points to win?");
-
-		d.startScreen();
+		int points = d.startScreen();
+		System.out.println(points);
 
 		//Main game loop
 		int count = 1;
@@ -88,6 +86,7 @@ public class GorillasMain {
 						g = new GameBoard();
 						heights = g.getStartHeights();
 						p = new Players(0.05, 0.95, heights[0] + 0.01, heights[1] + 0.01);
+						d.reset(g, p);
 					}
 				}
 
@@ -157,6 +156,7 @@ public class GorillasMain {
 							g = new GameBoard();
 							heights = g.getStartHeights();
 							p = new Players(0.05, 0.95, heights[0] + 0.01, heights[1] + 0.01);
+							d.reset(g, p);
 						}
 					}
 
@@ -167,5 +167,6 @@ public class GorillasMain {
 				}
 			}
 		}
+		d.endScreen();
 	}
 }
