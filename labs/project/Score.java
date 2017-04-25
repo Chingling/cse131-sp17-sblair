@@ -19,15 +19,9 @@ public class Score {
 	public void updateScore(boolean player1) {
 		if (player1 == true) {
 			this.player1 = this.player1 + 1;
-			StdDraw.setPenColor(Color.RED);
-			StdDraw.text(0.5, 0.95, "Player 1 POINT");
-			StdDraw.pause(1500);
 		}
 		else {
 			this.player2 = this.player2 + 1;
-			StdDraw.setPenColor(Color.BLUE);
-			StdDraw.text(0.5, 0.95, "Player 2 POINT");
-			StdDraw.pause(1500);
 		}
 	}
 

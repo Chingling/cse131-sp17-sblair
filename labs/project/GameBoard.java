@@ -54,13 +54,9 @@ public class GameBoard implements CollidableObject {
 		else {
 
 			for (int i = 0; i < this.height.length; i++) {
-				System.out.println("hi");
 				double left = (0.2 * i);
 				double right = ((0.2 * i) + 0.2);
 				double top = this.height[i];
-				System.out.println(left);
-				System.out.println(right);
-				System.out.println(top);
 				if (x >= left && x < right && y <= top ) {
 					return true;
 				}

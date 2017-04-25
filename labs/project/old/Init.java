@@ -1,4 +1,4 @@
-package project;
+package project.old;
 
 public class Init {
 
