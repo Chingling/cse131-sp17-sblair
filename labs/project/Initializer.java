@@ -34,20 +34,28 @@ public class Initializer {
 	public int startThrow(double initX, boolean player) {
 		int turn = 1;
 		double initY = 0;
-		double angle = 0;
-		double velocity = 0;
+		double angle = -1;
+		double velocity = -1;
 		this.d.redrawAll();
 		if (player == true) {
 			initY = this.heights[0];
 			this.d.player1();
-			angle = ap.nextDouble("Player 1: Angle");
-			velocity = ap.nextDouble("Player 1: Velocity");
+			while (angle <= 0) {
+				angle = ap.nextDouble("Player 1: Angle");
+			}
+			while (velocity <= 0) {
+				velocity = ap.nextDouble("Player 1: Velocity");
+			}
 		}
 		if (player == false) {
 			initY = this.heights[1];
 			this.d.player2();
-			angle = ap.nextDouble("Player 2: Angle");
-			velocity = ap.nextDouble("Player 2: Velocity");
+			while (angle <= 0) {
+				angle = ap.nextDouble("Player 2: Angle");
+			}
+			while (velocity <= 0) {
+				velocity = ap.nextDouble("Player 2: Velocity");
+			}
 		}
 		Projectile r = new Projectile(angle, velocity);
 

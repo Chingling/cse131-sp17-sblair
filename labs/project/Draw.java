@@ -27,7 +27,10 @@ public class Draw {
 		StdDraw.text(0.5, 0.5, "GORILLAS");
 		StdDraw.pause(1500);
 		StdDraw.clear();
-		int points = ap.nextInt("How many points to win?");
+		int points = -1;
+		while (points <= 0) {
+			points = ap.nextInt("How many points to win?");
+		}
 
 		//Show Player positions
 		redrawAll();
