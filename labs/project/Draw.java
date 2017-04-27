@@ -115,9 +115,17 @@ public class Draw {
 	/**
 	 * Draw Game Over screen when point limit reached
 	 */
-	public void endScreen() {
+	public void endScreen(boolean player) {
 		StdDraw.clear();
 		StdDraw.setPenColor(Color.BLACK);
 		StdDraw.text(0.5, 0.5, "GAME OVER");
+		if (player == true) {
+			StdDraw.setPenColor(Color.RED);
+			StdDraw.text(0.5, 0.3, "Player 1 WINS");
+		}
+		if (player == false) {
+			StdDraw.setPenColor(Color.BLUE);
+			StdDraw.text(0.5, 0.3, "Player 2 WINS");
+		}
 	}
 }

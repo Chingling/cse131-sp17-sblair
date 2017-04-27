@@ -106,7 +106,7 @@ public class Initializer {
 					this.d.reset(g, p);
 				}
 			}
-			if (this.s.getPlayer1() == points || this.s.getPlayer2() == points) {
+			if (this.s.getPlayer1() == this.points || this.s.getPlayer2() == this.points) {
 				return 0;
 			}
 		}
@@ -117,6 +117,11 @@ public class Initializer {
 	 * Call to Draw to show Game Over screen
 	 */
 	public void endScreen() {
-		this.d.endScreen();
+		if (this.s.getPlayer1() == this.points) {
+			this.d.endScreen(true);
+		}
+		if (this.s.getPlayer2() == this.points) {
+			this.d.endScreen(false);
+		}
 	}
 }

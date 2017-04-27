@@ -10,7 +10,7 @@ public class Projectile {
 	public Projectile(double angle, double velocity) {
 		this.velocityX = velocity/10 * Math.cos(angle * (Math.PI/180));
 		this.velocityY = velocity/10 * Math.sin(angle * (Math.PI/180));
-		this.dtime = 0.001;
+		this.dtime = 0.003; //0.001
 	}
 
 	/**
