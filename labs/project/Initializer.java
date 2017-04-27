@@ -11,16 +11,17 @@ public class Initializer {
 	private ArgsProcessor ap;
 	private GameBoard g;
 	private Score s;
-	private Players p;
+	private Player p1, p2;
 	private Draw d;
 
 	public Initializer(String[] args) {
 		this.ap = new ArgsProcessor(args);
 		this.g = new GameBoard();
-		this.heights = g.getStartHeights();
-		this.p = new Players(0.05, 0.95, heights[0] + 0.01, heights[1] + 0.01);
+		this.heights = this.g.getStartHeights();
+		this.p1 = new Player(0.05, this.heights[0] + 0.01, Color.RED);
+		this.p2 = new Player(0.95, this.heights[1] + 0.01, Color.BLUE);
 		this.s = new Score();
-		this.d = new Draw(g, p, s, args);
+		this.d = new Draw(g, p1, p2, s, args);
 		StdDraw.clear();
 		this.points = d.startScreen();
 	}
@@ -80,7 +81,8 @@ public class Initializer {
 			initX = coord[0];
 			initY = coord[1];
 			this.d.redrawProjectile();
-			boolean collisionP = this.p.checkCollision(initX, initY);
+			boolean collisionP1 = this.p1.checkCollision(initX, initY, p2);
+			boolean collisionP2 = this.p2.checkCollision(initX, initY, p1);
 			boolean collisionG = this.g.checkCollision(initX, initY);
 
 			if (collisionG == true) {
@@ -89,7 +91,7 @@ public class Initializer {
 				turn = 2;
 				StdDraw.pause(1000);
 			}
-			if (collisionP == true) {
+			if (collisionP1 == true || collisionP2 == true) {
 				if (player == true) {
 					this.s.updateScore(true);
 					this.d.hitAnimation(true);
@@ -102,8 +104,9 @@ public class Initializer {
 				if (this.s.getPlayer1() != this.points && this.s.getPlayer2() != this.points) {
 					this.g = new GameBoard();
 					this.heights = g.getStartHeights();
-					this.p = new Players(0.05, 0.95, this.heights[0] + 0.01, this.heights[1] + 0.01);
-					this.d.reset(g, p);
+					this.p1 = new Player(0.05, this.heights[0] + 0.01, Color.RED);
+					this.p2 = new Player(0.95, this.heights[1] + 0.01, Color.BLUE);
+					this.d.reset(g, p1, p2);
 				}
 			}
 			if (this.s.getPlayer1() == this.points || this.s.getPlayer2() == this.points) {

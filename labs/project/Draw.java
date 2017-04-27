@@ -9,13 +9,14 @@ public class Draw {
 
 	private GameBoard g;
 	private Score s;
-	private Players p;
+	private Player p1, p2;
 	private ArgsProcessor ap;
 
-	public Draw(GameBoard g, Players p, Score s, String[] args) {
+	public Draw(GameBoard g, Player p1, Player p2, Score s, String[] args) {
 		this.g = g;
 		this.s = s;
-		this.p = p;
+		this.p1 = p1;
+		this.p2 = p2;
 		this.ap = new ArgsProcessor(args);
 	}
 
@@ -49,7 +50,8 @@ public class Draw {
 	public void redrawAll() {
 		StdDraw.clear();
 		g.redraw();
-		p.redraw();
+		p1.redraw();
+		p2.redraw();
 		s.redraw();
 	}
 
@@ -107,9 +109,10 @@ public class Draw {
 	 * @param g new round GameBoard
 	 * @param p new round Players
 	 */
-	public void reset(GameBoard g, Players p) {
+	public void reset(GameBoard g, Player p1, Player p2) {
 		this.g = g;
-		this.p = p;
+		this.p1 = p1;
+		this.p2 = p2;
 	}
 
 	/**

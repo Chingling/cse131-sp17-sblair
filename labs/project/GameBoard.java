@@ -4,7 +4,7 @@ import java.awt.Color;
 
 import sedgewick.StdDraw;
 
-public class GameBoard implements CollidableObject {
+public class GameBoard implements DrawableObject {
 	private double [] height;
 	private int [] colors;
 	private Color [] palette;

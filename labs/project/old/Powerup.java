@@ -4,10 +4,10 @@ import java.awt.Color;
 import java.util.LinkedList;
 import java.util.List;
 
-import project.CollidableObject;
+import project.DrawableObject;
 import sedgewick.StdDraw;
 
-public class Powerup implements CollidableObject {
+public class Powerup implements DrawableObject {
 
 	private List<Double> x, y;
 	private List<Integer> type;
