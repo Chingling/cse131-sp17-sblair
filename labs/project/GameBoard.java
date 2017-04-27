@@ -22,7 +22,6 @@ public class GameBoard implements CollidableObject {
 			StdDraw.setPenColor(this.palette[this.colors[i]]);
 			StdDraw.filledRectangle((i * 0.2) + 0.1, this.height[i]/2, 0.1, this.height[i]/2);
 		}
-
 	}
 
 	/**
@@ -35,7 +34,7 @@ public class GameBoard implements CollidableObject {
 	}
 
 	/**
-	 * Redraw game board skyline
+	 * Redraw GameBoard skyline
 	 */
 	public void redraw() {
 		for (int i = 0; i < this.height.length; i++) {
@@ -45,14 +44,16 @@ public class GameBoard implements CollidableObject {
 	}
 
 	/**
-	 * Check for collision with GameBoard object in accordance to CollidableObject
+	 * Take in x-coordinate and y-coordinate of projectile and determine if it has collided with the GameBoard or not
+	 * @param x x-coordinate of projectile
+	 * @param y y-coordinate of projectile
+	 * @return True for collision, false for no collision
 	 */
 	public boolean checkCollision(double x, double y) {
 		if (x > 1.0 || x < 0.0 || y < 0.0){
 			return true;
 		}
 		else {
-
 			for (int i = 0; i < this.height.length; i++) {
 				double left = (0.2 * i);
 				double right = ((0.2 * i) + 0.2);
@@ -64,5 +65,4 @@ public class GameBoard implements CollidableObject {
 		}
 		return false;
 	}
-
 }

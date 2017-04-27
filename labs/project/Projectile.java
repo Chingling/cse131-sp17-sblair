@@ -49,21 +49,17 @@ public class Projectile {
 	 * @return Array of new x-coordinate and y-coordinate
 	 */
 	public double [] throwP(boolean player1, double initX, double initY) {
-
 		if (player1 == true) {
-
 			StdDraw.setPenColor(Color.RED);
 			StdDraw.filledCircle(initX, initY, 0.004);
 			double next [] = {updateXOne(initX), updateY(initY)};
 			return next;
 		}
 		else {
-
 			StdDraw.setPenColor(Color.BLUE);
 			StdDraw.filledCircle(initX, initY, 0.004);
 			double next [] = {updateXTwo(initX), updateY(initY)};
 			return next;
 		}
-
 	}
 }

@@ -16,8 +16,6 @@ public class Initializer {
 
 	public Initializer(String[] args) {
 		this.ap = new ArgsProcessor(args);
-
-		//Initialize Ground, Players, Score, and Draw objects
 		this.g = new GameBoard();
 		this.heights = g.getStartHeights();
 		this.p = new Players(0.05, 0.95, heights[0] + 0.01, heights[1] + 0.01);
@@ -27,10 +25,6 @@ public class Initializer {
 		this.points = d.startScreen();
 	}
 
-	public int getPoints() {
-		return this.points;
-	}
-
 	public int startThrow(double initX, boolean player) {
 		int turn = 1;
 		double initY = 0;
@@ -38,23 +32,23 @@ public class Initializer {
 		double velocity = -1;
 		this.d.redrawAll();
 		if (player == true) {
-			initY = this.heights[0];
-			this.d.player1();
-			while (angle <= 0) {
-				angle = ap.nextDouble("Player 1: Angle");
+			initY = this.heights[0] + 0.02;
+			this.d.player(true);
+			while (angle < 0) {
+				angle = this.ap.nextDouble("Player 1: Angle");
 			}
-			while (velocity <= 0) {
-				velocity = ap.nextDouble("Player 1: Velocity");
+			while (velocity < 0) {
+				velocity = this.ap.nextDouble("Player 1: Velocity");
 			}
 		}
 		if (player == false) {
-			initY = this.heights[1];
-			this.d.player2();
-			while (angle <= 0) {
-				angle = ap.nextDouble("Player 2: Angle");
+			initY = this.heights[1] + 0.02;
+			this.d.player(false);
+			while (angle < 0) {
+				angle = this.ap.nextDouble("Player 2: Angle");
 			}
-			while (velocity <= 0) {
-				velocity = ap.nextDouble("Player 2: Velocity");
+			while (velocity < 0) {
+				velocity = this.ap.nextDouble("Player 2: Velocity");
 			}
 		}
 		Projectile r = new Projectile(angle, velocity);
@@ -109,7 +103,10 @@ public class Initializer {
 		}
 		return 1;
 	}
-	
+
+	/**
+	 * Call to Draw to show Game Over screen
+	 */
 	public void endScreen() {
 		this.d.endScreen();
 	}

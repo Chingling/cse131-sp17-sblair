@@ -49,5 +49,4 @@ public class Score {
 		StdDraw.text(0.07, 0.95, Integer.toString(this.player1));
 		StdDraw.text(0.93, 0.95, Integer.toString(this.player2));
 	}
-
 }
