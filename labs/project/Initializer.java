@@ -25,35 +25,50 @@ public class Initializer {
 		this.points = d.startScreen();
 	}
 
-	public int startThrow(double initX, boolean player) {
-		int turn = 1;
-		double initY = 0;
-		double angle = -1;
+	/**
+	 * Start Projectile throw based on Player throwing and push Projectile object and Player indicator to the throw loop
+	 * @param player true for Player 1, false for Player 2
+	 * @return indicator for if a player reaches point limit, received by throwLoop
+	 */
+	public int startThrow(boolean player) {
+		double angle = 360;
 		double velocity = -1;
+		int result = 1;
 		this.d.redrawAll();
 		if (player == true) {
-			initY = this.heights[0] + 0.02;
 			this.d.player(true);
-			while (angle < 0) {
+			while (angle > 90 || angle < -90) {
 				angle = this.ap.nextDouble("Player 1: Angle");
 			}
 			while (velocity < 0) {
 				velocity = this.ap.nextDouble("Player 1: Velocity");
 			}
+			Projectile r = new Projectile(angle, velocity);
+			result = throwLoop(r, 0.07, this.heights[0] + 0.02, true);
 		}
 		if (player == false) {
-			initY = this.heights[1] + 0.02;
 			this.d.player(false);
-			while (angle < 0) {
+			while (angle > 90 || angle < -90) {
 				angle = this.ap.nextDouble("Player 2: Angle");
 			}
 			while (velocity < 0) {
 				velocity = this.ap.nextDouble("Player 2: Velocity");
 			}
+			Projectile r = new Projectile(angle, velocity);
+			result = throwLoop(r, 0.93, this.heights[1] + 0.02, false);
 		}
-		Projectile r = new Projectile(angle, velocity);
+		return result;
+	}
 
-		//Projectile throw loop
+	/**
+	 * Loop the thrown Projectile based on Player throwing until it hits the GameBoard or the other Player
+	 * @param r Projectile created by startThrow
+	 * @param initX initial x-coordinate for Projectile
+	 * @param player true for Player 1, false for Player 2
+	 * @return indicator for if a player reaches point limit (1 if not yet reached, 0 if reached)
+	 */
+	public int throwLoop(Projectile r, double initX, double initY, boolean player) {
+		int turn = 1;
 		while (turn == 1) {
 			double [] coord = new double [2];
 			if (player == true) {
@@ -65,19 +80,15 @@ public class Initializer {
 			initX = coord[0];
 			initY = coord[1];
 			this.d.redrawProjectile();
-
 			boolean collisionP = this.p.checkCollision(initX, initY);
 			boolean collisionG = this.g.checkCollision(initX, initY);
 
-			//Ground collision
 			if (collisionG == true) {
 				StdDraw.setPenColor(Color.BLACK);
 				StdDraw.text(0.5, 0.95, "Miss!");
 				turn = 2;
 				StdDraw.pause(1000);
 			}
-
-			//Player collision
 			if (collisionP == true) {
 				if (player == true) {
 					this.s.updateScore(true);
@@ -95,8 +106,6 @@ public class Initializer {
 					this.d.reset(g, p);
 				}
 			}
-
-			//Condition if point limit reached
 			if (this.s.getPlayer1() == points || this.s.getPlayer2() == points) {
 				return 0;
 			}
